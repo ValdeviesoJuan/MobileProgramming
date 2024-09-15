@@ -1,7 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { Ionicons } from '@expo/vector-icons';
 
 const Task = (props) => {
+    const isSelected = props.selectedTaskIndex ===props.index;
 
     return (
         <View style={styles.item}>
@@ -9,7 +11,12 @@ const Task = (props) => {
                 <View style={styles.square}></View>
                 <Text style={styles.itemText}>{props.text}</Text>
             </View>
-            <View style={styles.circular}></View> 
+        
+            {isSelected ? (
+                <Ionicons name="checkmark-circle-outline" size={24} color="green" />
+            ) : (
+                <Ionicons name="ellipse-outline" size={24} color="gray" />
+            )}
         </View>
     )
 }
