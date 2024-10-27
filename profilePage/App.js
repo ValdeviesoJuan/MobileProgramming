@@ -96,11 +96,9 @@ const ProfilePage = () => {
             color='red'
           />
         </View>
-
         
       </ScrollView>
 
-      {/* Bottom Navigation Placeholder */}
       <View style={styles.bottomNav}>
         <View style={styles.bottomNavLink}>
           <Ionicons name="home" size={24} color="black" />
@@ -109,7 +107,7 @@ const ProfilePage = () => {
         <View style={styles.bottomNavLink}>
           <FontAwesome6 name="note-sticky" size={24} color="grey" />
           <Text style={{color: 'grey'}}>History</Text>
-        </View > 
+        </View> 
         <View style={styles.bottomNavLink}>
           <Ionicons name="add-circle" size={70} color="green" />
         </View>
