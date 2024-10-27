@@ -9,6 +9,7 @@ export default function App() {
   const [taskItems, setTaskItems] = useState([]);
   const [selectedTaskIndex, setSelectedTaskIndex] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleAddtask  = () => {
     if (isEditing) {
@@ -44,6 +45,10 @@ export default function App() {
     setIsEditing(true); 
   };
 
+  const filteredTasks = taskItems.filter(item => 
+    item.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <View style={styles.container}>
     
@@ -59,23 +64,29 @@ export default function App() {
       {/* Whole Tasks Section */} 
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Tasks </Text>
+
+        {/* Search Bar */}
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search tasks..."
+          value={searchQuery}
+          onChangeText={(text) => setSearchQuery(text)}
+        />
         
         <View style={styles.items}>
-          {/*List all tasks here*/}
-          {taskItems.map((item, index) => {
-              return ( 
-                <TouchableOpacity 
-                  key={index} 
-                  onPress={() => setSelectedTaskIndex(index)}
-                  onLongPress={() => handleLongPress(index)}>
-                    <Task 
-                    text={item}
-                    index={index}
-                    selectedTaskIndex={selectedTaskIndex}
-                    />
-                </TouchableOpacity>
-              )
-          })}
+          {filteredTasks.map((item, index) => (
+            <TouchableOpacity
+              key={index}
+              onPress={() => setSelectedTaskIndex(index)}
+              onLongPress={() => handleLongPress(index)}
+            >
+              <Task
+                text={item}
+                index={index}
+                selectedTaskIndex={selectedTaskIndex}
+              />
+            </TouchableOpacity>
+          ))}
         </View>
       </View>
 
@@ -126,7 +137,15 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: 'bold', 
+  },
+  searchBar: {
+    padding: 10,
+    marginTop: 20,
+    borderColor: '#C0C0C0',
+    borderWidth: 1,
+    borderRadius: 30,
+    backgroundColor: '#FFF',
   },
   items: {
     marginTop: 30,

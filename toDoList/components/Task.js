@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { Ionicons } from '@expo/vector-icons';
 
 const Task = (props) => {
-    const isSelected = props.selectedTaskIndex ===props.index;
+    const isSelected = props.selectedTaskIndex === props.index;
 
     return (
         <View style={styles.item}>
