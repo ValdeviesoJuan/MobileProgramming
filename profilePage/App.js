@@ -5,6 +5,8 @@ import LoginPage from './LoginPage';
 import UserPage from './UserPage';   
 import RegisterPage from './RegisterPage'; 
 import PasswordRecoveryPage from './PasswordRecoveryPage';
+import PasswordRecoveryPage2 from './PasswordRecoveryPage2';
+import PasswordRecoverySuccessfulPage from './PasswordRecoverySuccessfulPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,6 +18,8 @@ const App = () => {
         <Stack.Screen name="UserPage" component={UserPage} options={{title: "Profile", headerTitleAlign: 'center' }}/>
         <Stack.Screen name="RegisterPage" component={RegisterPage} options={{title: "Register", headerTitleAlign: 'center' }}/>
         <Stack.Screen name="PasswordRecoveryPage" component={PasswordRecoveryPage} options={{title: "Password Recovery", headerTitleAlign: 'center' }}/>
+        <Stack.Screen name="PasswordRecoveryPage2" component={PasswordRecoveryPage2} options={{title: "Password Recovery", headerTitleAlign: 'center' }}/>
+        <Stack.Screen name="PasswordRecoverySuccessfulPage" component={PasswordRecoverySuccessfulPage} options={{title: "Password Recovery Successful", headerTitleAlign: 'center', headerLeft: () => null,  headerShown: true }}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

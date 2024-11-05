@@ -91,7 +91,6 @@ const UserPage = ({ navigation }) => {
             color='red'
           />
         </View>
-
         
       </ScrollView>
 

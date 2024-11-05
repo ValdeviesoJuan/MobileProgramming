@@ -2,32 +2,52 @@ import { React, useState } from 'react';
 import { View, Text, StyleSheet, Pressable  } from 'react-native';
 import { TextInput, Button } from 'react-native-paper';
 
-const PasswordRecoveryPage = ({ navigation }) => {
-  const [email, setEmail] = useState("");
+const PasswordRecoveryPage2 = ({ navigation }) => {
+  const [code, setCode] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   
   return (
     <View style={styles.container}>
       <View style={styles.secondContainer}>
         <Text style={styles.pageTitle}> 
-          Forget Password
+          Recover Your Password
         </Text>
         <View style={styles.thirdContainer}>
           <TextInput 
             style={styles.textInput} 
             mode='outlined'
             label="Email" 
-            value={email} 
-            onChangeText={email => setEmail(email)}   
+            value={code} 
+            onChangeText={code => setCode(code)}   
+            activeOutlineColor="#00C851"
+          />
+
+          <TextInput 
+            style={styles.textInput} 
+            mode='outlined'
+            label="New Password" 
+            value={password} 
+            onChangeText={password => setPassword(password)}   
+            activeOutlineColor="#00C851"
+          />
+
+          <TextInput 
+            style={styles.textInput} 
+            mode='outlined'
+            label="Confirm New Password" 
+            value={passwordConfirmation} 
+            onChangeText={passwordConfirmation => setPasswordConfirmation(passwordConfirmation)}   
             activeOutlineColor="#00C851"
           />
 
           <Button 
             style={styles.button}
             mode="contained" 
-            onPress={() => navigation.navigate('PasswordRecoveryPage2')}
+            onPress={() => navigation.navigate('PasswordRecoverySuccessfulPage')}
             buttonColor='#00C851'
           >
-            S E N D  E M A I L
+            S E T   P A S S W O R D
           </Button>
 
           <View style={styles.redirectPage}> 
@@ -120,4 +140,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PasswordRecoveryPage;
+export default PasswordRecoveryPage2;

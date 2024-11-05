@@ -2,11 +2,13 @@ import { React, useState } from 'react';
 import { View, Text, StyleSheet, Pressable  } from 'react-native';
 import { TextInput, Button, Switch } from 'react-native-paper';
 import SocialIcons from './components/SocialIcons';
+import { MaterialIcons } from '@expo/vector-icons';
 
 const RegisterPage = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   
   return (
     <View style={styles.container}>
@@ -40,8 +42,20 @@ const RegisterPage = ({ navigation }) => {
             mode='outlined'
             label="Password" 
             value={password} 
-            onChangeText={password => setPassword(password)} 
+            onChangeText={password => setPassword(password)}
+            secureTextEntry={!showPassword} 
             activeOutlineColor="#00C851"
+            right={
+                <TextInput.Icon
+                    icon={() => (
+                        <MaterialIcons
+                            name={showPassword ? 'visibility' : 'visibility-off'}
+                            size={24}
+                            onPress={() => setShowPassword(!showPassword)}
+                        />
+                    )}
+                />
+            }
           />
 
           <Button 
