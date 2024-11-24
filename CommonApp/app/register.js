@@ -64,7 +64,7 @@ const Register = ( ) => {
           <Button 
             style={styles.button}
             mode="contained" 
-            onPress={() => navigation.navigate('UserPage')}
+            onPress={() => router.replace('dashboard')}
             buttonColor='#00C851'
           >
             R E G I S T E R

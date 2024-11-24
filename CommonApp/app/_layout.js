@@ -19,7 +19,14 @@ const RootLayout = () => {
           <Stack.Screen name="register" />
           <Stack.Screen name="recover" options={{ 
             headerShown: true,
-            title: "Recover" }}/>
+            title: "Forgot Password" }}/>
+          <Stack.Screen name="dashboard"
+            options={{
+              title: "Dashboard",
+              headerShown: false,
+            }}
+
+          />
         </Stack>
       </SafeAreaProvider>
     </PaperProvider>

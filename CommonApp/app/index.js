@@ -65,7 +65,7 @@ const Login = () => {
                 Remember Me
               </Text>
             </View>
-            <Pressable onPress={() => navigation.navigate('PasswordRecoveryPage')} >
+            <Pressable onPress={() => router.push('recover')} >
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </Pressable>
           </View>
@@ -73,7 +73,7 @@ const Login = () => {
           <Button 
             style={styles.button}
             mode="contained" 
-            onPress={() => router.push("/register")}
+            onPress={() => router.replace("dashboard")}
             buttonColor='#00C851'
           >
             L O G I N
@@ -83,7 +83,7 @@ const Login = () => {
             <Text style={styles.redirectPageText}>
                 Don't have an account?
             </Text>
-            <Pressable onPress={() => navigation.navigate('RegisterPage')} >
+            <Pressable onPress={() => router.push('register')} >
               <Text style={styles.redirectPageTextLink}>Register here</Text>
             </Pressable> 
           </View>
